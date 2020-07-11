@@ -44,6 +44,11 @@ mvn javafx:jlink
 ## Next steps
 This project is configured based on my needs, if your want to go further with it let me give you some advices.
 
+Of course all the plugins I used are fully configurable even if the default configuration is enough for what I have done here. So, I recomend you to read the plugins documentation if you are thinking about making somethink bigger.
+
+### Native Images
+A native image is a feature of GraalVM that allow you to compile java code to a standalone executable. With this tool you can make executables for Windows, Linux and MacOS and even for iOS and Android. To get this done on the easy way I recomend you to use [client-maven-plugin](https://github.com/gluonhq/client-maven-plugin). You can find all the information you need about the plugin on its repository but if you prefer to check a project that uses this plugin you can check [this project](https://github.com/seniorglez/calculatorFX) of mine.
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - The build automation tool
@@ -52,7 +57,7 @@ This project is configured based on my needs, if your want to go further with it
 
 ## Contributing
 
-As long this is a personal test I am not acepting any pull request, I hope you understand.
+As long this is a personal test I am not acepting any pull request, I hope you understand. But, anyway you can still fork it. If you do, please let me know :stuck_out_tongue_winking_eye:.
 
 
 ## Authors
