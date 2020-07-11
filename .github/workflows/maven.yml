@@ -2,8 +2,16 @@
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-maven
 
 name: Java CI with Maven
-
-on: [push, pull_request]
+# I just want to run my tests if I have updated my sources or my POM.
+on:
+  push:
+    paths:
+      - '**.xml'
+      - 'src/**'
+  pull_request:
+    paths:
+      - '**.xml'
+      - 'src/**'
 
 jobs:
   build:
