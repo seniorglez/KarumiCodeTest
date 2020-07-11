@@ -1,7 +1,10 @@
 name: Deployment to GitHub Packages
 
+#I only want this to trigger on branch master when I make a new release.
 on:
   release:
+    branches:
+      - master
     types: [published]
 
 jobs:
