@@ -5,17 +5,17 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.seniorglez</groupId>
-  <artifactId>KarumiCodeTest</artifactId>
+  <artifactId>karumiCodeTest</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>KarumiCodeTest</name>
+  <name>karumiCodeTest</name>
   <url>https://www.karumi.com/</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>11</maven.compiler.release>
     <javafx.version>14.0.1</javafx.version>
-    <mainClassName>KarumiCodeTest.App</mainClassName>
+    <mainClassName>karumiCodeTest.App</mainClassName>
   </properties>
 
   <dependencies>
@@ -60,6 +60,13 @@
           <mainClass>${mainClassName}</mainClass>
         </configuration>
       </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.0.0-M5</version>
+      </plugin>
+
     </plugins>
   </build>
 

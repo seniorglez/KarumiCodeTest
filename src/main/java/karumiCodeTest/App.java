@@ -1,4 +1,4 @@
-package KarumiCodeTest;
+package karumiCodeTest;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
