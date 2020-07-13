@@ -9,7 +9,7 @@ public class UnexpectedResponseCodeException extends Exception {
     private int responseCode;
 
     /**
-     * Constucts a new (@code UnexpectedResponseCodeException) from the
+     * Constucts a new {@link UnexpectedResponseCodeException} from the
      * specified response code and exception detail message.
      * @param detail the detail message
      * @param code the HTTP response code from server

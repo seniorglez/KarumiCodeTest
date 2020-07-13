@@ -54,6 +54,9 @@ A native image is a feature of GraalVM that allow you to compile java code to a 
 * [Maven](https://maven.apache.org/) - The build automation tool
 * [OpenJavaFX](https://openjfx.io/) - An open source, next generation client application platform for desktop, mobile and embedded systems built on Java.
 * [javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin) - The javaFX plugin  which allows to compile and run javaFX 11 or higher projets.
+* [jackson-databind](https://github.com/FasterXML/jackson-databind) - The json processor.
+* [JUnit5](https://github.com/junit-team/junit5) - The popular unit testing library for the JVM platform.
+* [TestFX](https://github.com/TestFX/TestFX) - A simple library for testing JavaFX apps with support for JUnit.
 
 ## Contributing
 

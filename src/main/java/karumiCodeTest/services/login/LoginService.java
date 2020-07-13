@@ -2,18 +2,18 @@ package karumiCodeTest.services.login;
 
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import karumiCodeTest.config.PropertiesReader;
+import karumiCodeTest.model.Credentials;
 
 public class LoginService extends Service<String> {
 
-    private String apiUrl;
-
-    public LoginService () {
-        apiUrl = PropertiesReader.instanciate().getProerty("url");
-    }
+    private Credentials credentials;
 
     @Override
     protected Task<String> createTask() {
-        return new LoginTask();
+        return new LoginTask(credentials);
+    }
+
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
     }
 }
