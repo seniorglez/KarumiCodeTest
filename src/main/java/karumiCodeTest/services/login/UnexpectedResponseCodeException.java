@@ -6,6 +6,9 @@ package karumiCodeTest.services.login;
  */
 public class UnexpectedResponseCodeException extends Exception {
 
+    /**
+     * The http response code which provoked the {@link UnexpectedResponseCodeException}
+     */
     private int responseCode;
 
     /**

@@ -63,6 +63,11 @@ public class LoginTask extends Task<String> {
         return response.body();
     }
 
+    /**
+     * Parses the stored {@link Credentials} object to a JSON String.
+     * @return The JSON String.
+     * @throws JsonProcessingException An exception which is thrown by all the problems that may occur when parsing JSONs.
+     */
     private String buildCredentialsJson() throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(credentials);

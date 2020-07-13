@@ -1,6 +1,5 @@
 package karumiCodeTest;
 
-import javafx.scene.Parent;
 import karumiCodeTest.config.PropertiesReader;
 import org.junit.jupiter.api.Test;
 
