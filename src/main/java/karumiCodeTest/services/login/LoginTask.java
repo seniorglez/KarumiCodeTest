@@ -10,7 +10,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * A Task which send the user credentials to the HTTP server and receives the response.
@@ -22,6 +23,13 @@ public class LoginTask extends Task<String> {
      */
     Credentials credentials;
 
+
+    private HttpClient httpClient;
+
+    private HttpRequest request;
+
+    private HttpResponse.BodyHandler<String> bodyHandler;
+
     /**
      * Constructs a new {@link LoginTask} from the
      * specified credentials.
@@ -31,32 +39,62 @@ public class LoginTask extends Task<String> {
         this.credentials = credentials;
     }
 
-    /** Invoked when the Task is executed, tries to get the token from the server.
+    /** 
+     * Invoked when the Task is executed, tries to get the token from the server.
      * @return The response of the server.
      * @throws Exception An Exception thrown when attempting to communicate with the server.
      */
     @Override
     protected String call() throws Exception {
-        //return logIn();
-        return "tokenMocked123";
+        prepareConnection();
+        mockHttpClient();//Comment
+        return logIn(httpClient,request, bodyHandler);
     }
 
+    /**
+     * Instances the members httpClient, request and bodyHandler
+     * @throws JsonProcessingException An exception which is thrown by all the problems that may occur when parsing JSONs.
+     */
+    private void prepareConnection() throws JsonProcessingException {
+        httpClient = HttpClient
+                .newBuilder()
+                .build();
+        request = HttpRequest
+                .newBuilder()
+                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .POST(HttpRequest.BodyPublishers.ofString(buildCredentialsJson()))
+                .build();
+        bodyHandler = HttpResponse.BodyHandlers.ofString();
+    }
+
+    /**
+     * Mocks the httpClient to execute the app when the API is not available, please only use this method for demo proposes.
+     * The http client and the response are mocked through the Mockito library.
+     * @throws IOException
+     * @throws InterruptedException
+     */
+    private void mockHttpClient() throws IOException, InterruptedException {
+        httpClient = mock(HttpClient.class);
+        HttpResponse mokedResponse = mock(HttpResponse.class);
+        when(mokedResponse.statusCode()).thenReturn(200);
+        when(mokedResponse.body()).thenReturn("fakeToken");
+        try {
+            when(httpClient.send(request, bodyHandler)).thenReturn(mokedResponse);
+        } catch (IOException |InterruptedException e) {
+            System.err.println("httpClientMockFailed");
+            throw e;
+        }
+    }
+
+    //logIn is public just to simplify the testing process, we have the encapsulation of the module anyway. But if will be a nice to have a library which allows us to test private methods.
     /**
      * @return The session token from the server.
      * @throws UnexpectedResponseCodeException
      * @throws InterruptedException
      * @throws IOException
      */
-    private String logIn() throws UnexpectedResponseCodeException, InterruptedException, IOException {
-        HttpClient httpClient = HttpClient
-                .newBuilder()
-                .build();
-        HttpRequest request = HttpRequest
-                .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
-                .POST(HttpRequest.BodyPublishers.ofString(buildCredentialsJson()))
-                .build();
-        HttpResponse<String> response = httpClient.send(request, HttpResponse.BodyHandlers.ofString());
+    public String logIn(HttpClient httpClient, HttpRequest request, HttpResponse.BodyHandler<String> bodyHandler) throws UnexpectedResponseCodeException, InterruptedException, IOException {
+        HttpResponse<String> response = httpClient.send(request, bodyHandler);
         int status = response.statusCode();
         if (status < 200 || status > 299)
             throw new UnexpectedResponseCodeException("The http request response code was not included on the successful responses group (200-299)", status);
@@ -73,8 +111,6 @@ public class LoginTask extends Task<String> {
         return objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(credentials);
     }
 }
-
-
 /*
 Why I build a custom Exception for this task?
 
