@@ -39,7 +39,7 @@ public class TestLogable implements Loggable {
     }
 
     @Test
-    public void shouldThrowAnUnexpectedResponseCodeException() throws IOException, InterruptedException {
+    public void shouldThrowAnUnexpectedResponseCodeExceptionMore() throws IOException, InterruptedException {
         HttpClient httpClient = mock(HttpClient.class);
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
@@ -47,7 +47,30 @@ public class TestLogable implements Loggable {
                 .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
-        when(mokedResponse.statusCode()).thenReturn(404);
+        when(mokedResponse.statusCode()).thenReturn(300);
+        when(mokedResponse.body()).thenReturn("fakeToken");
+        HttpResponse.BodyHandler<String> bodyHandlers = HttpResponse.BodyHandlers.ofString();
+        try {
+            when(httpClient.send(request,bodyHandlers)).thenReturn(mokedResponse);
+        } catch (IOException |InterruptedException e) {
+            System.err.println("httpClientMockFailed");
+            throw e;
+        }
+        Assertions.assertThrows(UnexpectedResponseCodeException.class, ()-> {
+            logIn(httpClient,request,bodyHandlers);
+        });
+    }
+
+    @Test
+    public void shouldThrowAnUnexpectedResponseCodeExceptionLess() throws IOException, InterruptedException {
+        HttpClient httpClient = mock(HttpClient.class);
+        HttpResponse mokedResponse = mock(HttpResponse.class);
+        HttpRequest request = HttpRequest
+                .newBuilder()
+                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .POST(HttpRequest.BodyPublishers.ofString("json"))
+                .build();
+        when(mokedResponse.statusCode()).thenReturn(199);
         when(mokedResponse.body()).thenReturn("fakeToken");
         HttpResponse.BodyHandler<String> bodyHandlers = HttpResponse.BodyHandlers.ofString();
         try {

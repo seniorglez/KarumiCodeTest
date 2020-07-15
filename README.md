@@ -57,6 +57,7 @@ A native image is a feature of GraalVM that allow you to compile java code to a 
 * [jackson-databind](https://github.com/FasterXML/jackson-databind) - The json processor.
 * [JUnit5](https://github.com/junit-team/junit5) - The popular unit testing library for the JVM platform.
 * [TestFX](https://github.com/TestFX/TestFX) - A simple library for testing JavaFX apps with support for JUnit.
+* [Mockito](https://github.com/mockito/mockito) - The popular mocking framework written in Java.
 
 ## Contributing
 
