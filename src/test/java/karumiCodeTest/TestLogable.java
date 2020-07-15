@@ -1,8 +1,7 @@
 package karumiCodeTest;
 
 import karumiCodeTest.config.PropertiesReader;
-import karumiCodeTest.model.Credentials;
-import karumiCodeTest.services.login.LoginTask;
+import karumiCodeTest.services.login.Loggable;
 import karumiCodeTest.services.login.UnexpectedResponseCodeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -15,13 +14,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-
-public class TestLoginTask {
+public class TestLogable implements Loggable {
 
     @Test
     public void shouldReturnAToken() throws IOException, InterruptedException, UnexpectedResponseCodeException {
-        Credentials credentials = new Credentials();
-        LoginTask loginTask = new LoginTask(credentials);
         HttpClient httpClient = mock(HttpClient.class);
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
@@ -38,14 +34,12 @@ public class TestLoginTask {
             System.err.println("httpClientMockFailed");
             throw e;
         }
-        String s = loginTask.logIn(httpClient,request,bodyHandlers);
+        String s = logIn(httpClient,request,bodyHandlers);
         assertTrue("fakeToken" == s);
     }
 
     @Test
-    public void shouldThrowAnUnexpectedResponseException() {
-        Credentials credentials = new Credentials();
-        LoginTask loginTask = new LoginTask(credentials);
+    public void shouldThrowAnUnexpectedResponseCodeException() throws IOException, InterruptedException {
         HttpClient httpClient = mock(HttpClient.class);
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
@@ -60,9 +54,10 @@ public class TestLoginTask {
             when(httpClient.send(request,bodyHandlers)).thenReturn(mokedResponse);
         } catch (IOException |InterruptedException e) {
             System.err.println("httpClientMockFailed");
+            throw e;
         }
         Assertions.assertThrows(UnexpectedResponseCodeException.class, ()-> {
-            loginTask.logIn(httpClient,request,bodyHandlers);
+            logIn(httpClient,request,bodyHandlers);
         });
     }
 }

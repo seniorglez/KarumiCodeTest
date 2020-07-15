@@ -16,7 +16,7 @@ import static org.mockito.Mockito.when;
 /**
  * A Task which send the user credentials to the HTTP server and receives the response.
  */
-public class LoginTask extends Task<String> {
+public class LoginTask extends Task<String> implements Loggable{
 
     /**
      * The credentials of the user.
@@ -84,21 +84,6 @@ public class LoginTask extends Task<String> {
             System.err.println("httpClientMockFailed");
             throw e;
         }
-    }
-
-    //logIn is public just to simplify the testing process, we have the encapsulation of the module anyway. But if will be a nice to have a library which allows us to test private methods.
-    /**
-     * @return The session token from the server.
-     * @throws UnexpectedResponseCodeException
-     * @throws InterruptedException
-     * @throws IOException
-     */
-    public String logIn(HttpClient httpClient, HttpRequest request, HttpResponse.BodyHandler<String> bodyHandler) throws UnexpectedResponseCodeException, InterruptedException, IOException {
-        HttpResponse<String> response = httpClient.send(request, bodyHandler);
-        int status = response.statusCode();
-        if (status < 200 || status > 299)
-            throw new UnexpectedResponseCodeException("The http request response code was not included on the successful responses group (200-299)", status);
-        return response.body();
     }
 
     /**
