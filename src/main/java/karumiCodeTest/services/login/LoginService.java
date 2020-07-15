@@ -16,15 +16,37 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-module KarumiCodeTest {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.net.http;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core;
-    requires org.mockito;
+package karumiCodeTest.services.login;
 
-    opens karumiCodeTest to javafx.fxml;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import karumiCodeTest.model.Credentials;
 
-    exports karumiCodeTest;
+/**
+ * A service which wraps the {@link LoginTask}.
+ *
+ * Before start the {@link LoginService} make sure that there is a {@link Credentials} object stored on the instance.
+ */
+public class LoginService extends Service<String> {
+
+    /**
+     * A object which represents the credentials used to log in the server.
+     */
+    private Credentials credentials;
+
+    /**
+     * Invoked after the service is started on the JavaFX Application Thread.
+     * @return A {@link LoginTask} constructed with the {@link Credentials} object stored on the instance.
+     */
+    @Override
+    protected Task<String> createTask() {
+        return new LoginTask(credentials);
+    }
+
+    /** Set the {@link Credentials} object which is used to intanciate the LoginTask when the {@link LoginService} starts it's execution.
+     * @param credentials the new credentials.
+     */
+    public void setCredentials(Credentials credentials) {
+        this.credentials = credentials;
+    }
 }

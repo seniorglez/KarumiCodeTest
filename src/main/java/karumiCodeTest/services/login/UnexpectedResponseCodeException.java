@@ -16,15 +16,46 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-module KarumiCodeTest {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.net.http;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core;
-    requires org.mockito;
+package karumiCodeTest.services.login;
 
-    opens karumiCodeTest to javafx.fxml;
+/**
+ * This exception is thrown when an attempt is made to make a request to an http API and the response code is none
+ * of the expected ones.
+ */
+public class UnexpectedResponseCodeException extends Exception {
 
-    exports karumiCodeTest;
+    /**
+     * The http response code which provoked the {@link UnexpectedResponseCodeException}
+     */
+    private int responseCode;
+
+    /**
+     * Constucts a new {@link UnexpectedResponseCodeException} from the
+     * specified response code and exception detail message.
+     * @param detail the detail message
+     * @param code the HTTP response code from server
+     */
+    public UnexpectedResponseCodeException(String detail, int code) {
+        super(detail);
+        this.responseCode = code;
+    }
+
+    /**
+     * Returns the http response code
+     *
+     * @return The http response code
+     */
+    public int getResponseCode() {
+        return  responseCode;
+    }
+
+    /**
+     * Returns a string explaining why the http request was unexpected
+     *
+     * @return  the reason string
+     */
+    public String getReason() {
+        return super.getMessage();
+    }
+
 }

@@ -1,4 +1,4 @@
-# KarumiCodeTest
+# karumiCodeTest
 A simple javaFX app with a full logging system which mockes the network connections.
 
 ## Getting Started
@@ -54,6 +54,10 @@ A native image is a feature of GraalVM that allow you to compile java code to a 
 * [Maven](https://maven.apache.org/) - The build automation tool
 * [OpenJavaFX](https://openjfx.io/) - An open source, next generation client application platform for desktop, mobile and embedded systems built on Java.
 * [javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin) - The javaFX plugin  which allows to compile and run javaFX 11 or higher projets.
+* [jackson-databind](https://github.com/FasterXML/jackson-databind) - The json processor.
+* [JUnit5](https://github.com/junit-team/junit5) - The popular unit testing library for the JVM platform.
+* [TestFX](https://github.com/TestFX/TestFX) - A simple library for testing JavaFX apps with support for JUnit.
+* [Mockito](https://github.com/mockito/mockito) - The popular mocking framework written in Java.
 
 ## Contributing
 
@@ -70,7 +74,7 @@ As long this is a personal test I am not acepting any pull request, I hope you u
 
 The MIT License (MIT)
 
-Copyright (c) 2020 Diego Dominguez Gonzalez
+Copyright (c) 2020 Diego Domínguez González
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
