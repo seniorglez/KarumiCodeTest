@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane prefHeight="432.0" prefWidth="419.0" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="260.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="90.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="188.0" layoutY="346.0" mnemonicParsing="false" text="Login" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="322.0" AnchorPane.topAnchor="346.0" />
+            <PasswordField layoutX="219.0" layoutY="235.0" prefHeight="35.0" promptText="Password" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="276.0" />
+            <TextField layoutX="219.0" layoutY="283.0" prefHeight="35.0" promptText="username" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="188.0" AnchorPane.topAnchor="229.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
