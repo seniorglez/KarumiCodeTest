@@ -16,7 +16,7 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-module KarumiCodeTest {
+module karumiCodeTest {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.net.http;
@@ -25,6 +25,6 @@ module KarumiCodeTest {
     requires org.mockito;
 
     opens karumiCodeTest to javafx.fxml;
-
+    opens karumiCodeTest.views.login to javafx.fxml; //I have no idea about why I have to open this package explicitly.
     exports karumiCodeTest;
 }
