@@ -13,6 +13,14 @@
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
 }
 
+.button:pressed {
+   -fx-background-color: #c0dafc;
+}
+
+.button:disabled {
+    -fx-background-color: #898c91;
+}
+
 .root {
 -fx-background-color: #FFFFFF;
 }
