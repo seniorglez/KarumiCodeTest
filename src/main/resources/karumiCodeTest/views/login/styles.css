@@ -1,13 +1,18 @@
 .text-field {
-    -fx-font-size: System 14pt;
+    -fx-font-size: 14;
 }
 
 .button {
     -fx-border-color: #e2e2e2;
-    -fx-border-width: 2;
-    -fx-background-radius: 10;
+    -fx-border-width: 0;
+    -fx-background-radius: 5;
     -fx-background-color: #217af0;
-    -fx-font-size: 11pt;
-    -fx-text-fill: #d8d8d8;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
     -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.root {
+-fx-background-color: #FFFFFF;
 }
