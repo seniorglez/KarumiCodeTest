@@ -16,15 +16,22 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-module karumiCodeTest {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.net.http;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core;
-    requires org.mockito;
+package org.seniorglez.karumiCodeTest;
 
-    opens karumiCodeTest to javafx.fxml;
-    opens karumiCodeTest.views.login to javafx.fxml; //I have no idea about why I have to open this package explicitly.
-    exports karumiCodeTest;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+/**
+ * Unit test for simple App.
+ */
+public class TestApp {
+    /**
+     * Rigorous Test :-)
+     */
+    @Test
+    public void shouldAnswerWithTrue() {
+        assertTrue(true);
+    }
+
 }
+

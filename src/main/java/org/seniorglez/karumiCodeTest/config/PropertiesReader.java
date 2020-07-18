@@ -1,4 +1,4 @@
-package karumiCodeTest.config;
+package org.seniorglez.karumiCodeTest.config;
 
 import java.io.IOException;
 import java.io.InputStreamReader;

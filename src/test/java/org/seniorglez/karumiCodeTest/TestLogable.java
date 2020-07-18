@@ -16,11 +16,11 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest;
+package org.seniorglez.karumiCodeTest;
 
-import karumiCodeTest.config.PropertiesReader;
-import karumiCodeTest.services.login.Loggable;
-import karumiCodeTest.services.login.UnexpectedResponseCodeException;
+import org.seniorglez.karumiCodeTest.config.PropertiesReader;
+import org.seniorglez.karumiCodeTest.services.login.Loggable;
+import org.seniorglez.karumiCodeTest.services.login.UnexpectedResponseCodeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;

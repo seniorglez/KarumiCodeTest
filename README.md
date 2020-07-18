@@ -1,4 +1,4 @@
-# karumiCodeTest
+# org.seniorglez.karumiCodeTest
 A simple javaFX app with a full logging system which mockes the network connections.
 
 ## Getting Started

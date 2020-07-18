@@ -16,37 +16,27 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest.services.login;
+package org.seniorglez.karumiCodeTest;
 
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
-import karumiCodeTest.model.Credentials;
+import org.seniorglez.karumiCodeTest.config.PropertiesReader;
+import org.junit.jupiter.api.Test;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-/**
- * A service which wraps the {@link LoginTask}.
- *
- * Before start the {@link LoginService} make sure that there is a {@link Credentials} object stored on the instance.
- */
-public class LoginService extends Service<String> {
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+public class TestPropertiesReader {
 
     /**
-     * A object which represents the credentials used to log in the server.
+     *
+     * https://regexr.com/37i6s
      */
-    private Credentials credentials;
-
-    /**
-     * Invoked after the service is started on the JavaFX Application Thread.
-     * @return A {@link LoginTask} constructed with the {@link Credentials} object stored on the instance.
-     */
-    @Override
-    protected Task<String> createTask() {
-        return new LoginTask(credentials);
-    }
-
-    /** Set the {@link Credentials} object which is used to intanciate the LoginTask when the {@link LoginService} starts it's execution.
-     * @param credentials the new credentials.
-     */
-    public void setCredentials(Credentials credentials) {
-        this.credentials = credentials;
+    @Test
+    public void shouldRetrieveAnURL() {
+        PropertiesReader propertiesReader = PropertiesReader.instanciate();
+        String url = propertiesReader.getProerty("url");
+        Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
+        Matcher matcher = pattern.matcher(url);
+        assertTrue(matcher.matches());
     }
 }

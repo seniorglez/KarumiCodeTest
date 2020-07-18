@@ -16,7 +16,7 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest.services.login;
+package org.seniorglez.karumiCodeTest.services.login;
 
 import java.io.IOException;
 import java.net.http.HttpClient;

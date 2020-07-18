@@ -1,4 +1,4 @@
-package karumiCodeTest.views.login;
+package org.seniorglez.karumiCodeTest.views.login;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

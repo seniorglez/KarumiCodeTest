@@ -17,7 +17,7 @@
  *  IN THE SOFTWARE.
  */
 
-package karumiCodeTest.model;
+package org.seniorglez.karumiCodeTest.model;
 
 /**
  * This POJO class represents the user credentials.

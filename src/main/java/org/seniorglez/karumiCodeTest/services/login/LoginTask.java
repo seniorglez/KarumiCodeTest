@@ -16,13 +16,13 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest.services.login;
+package org.seniorglez.karumiCodeTest.services.login;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.concurrent.Task;
-import karumiCodeTest.config.PropertiesReader;
-import karumiCodeTest.model.Credentials;
+import org.seniorglez.karumiCodeTest.config.PropertiesReader;
+import org.seniorglez.karumiCodeTest.model.Credentials;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;

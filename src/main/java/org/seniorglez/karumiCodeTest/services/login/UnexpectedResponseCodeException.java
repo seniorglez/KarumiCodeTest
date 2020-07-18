@@ -16,7 +16,7 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest.services.login;
+package org.seniorglez.karumiCodeTest.services.login;
 
 /**
  * This exception is thrown when an attempt is made to make a request to an http API and the response code is none
