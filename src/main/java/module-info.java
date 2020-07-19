@@ -26,6 +26,8 @@ module org.seniorglez.karumiCodeTest {
 
     opens org.seniorglez.karumiCodeTest to javafx.fxml;
     opens org.seniorglez.karumiCodeTest.views.login to javafx.fxml;
+    opens org.seniorglez.karumiCodeTest.views.userPanel to javafx.fxml;
+    exports org.seniorglez.karumiCodeTest.model;
     exports org.seniorglez.karumiCodeTest;
 }
 

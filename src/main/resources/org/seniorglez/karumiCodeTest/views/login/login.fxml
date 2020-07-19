@@ -17,7 +17,7 @@
                   <Image url="@logo.png" />
                </image>
             </ImageView>
-            <Button fx:id="loginButton" layoutX="188.0" layoutY="346.0" mnemonicParsing="false" prefHeight="34.0" text="Login" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="347.0" />
+            <Button fx:id="loginButton" layoutX="188.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="34.0" text="Login" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="347.0" />
             <PasswordField fx:id="passwordField" layoutX="219.0" layoutY="235.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="Password" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="276.0" />
             <TextField fx:id="usernameField" layoutX="219.0" layoutY="283.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="username" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="229.0" />
          </children>
