@@ -35,12 +35,6 @@ To run the project on your local JVM:
 mvn javafx:run
 ```
 
-We are working with java11 on a modular project so you can build a Jlink too. We are using the javafx-maven-plugin to build it too:
-
-```
-mvn javafx:jlink
-```
-
 ## Next steps
 This project is configured based on my needs, if your want to go further with it let me give you some advices.
 
@@ -48,6 +42,17 @@ Of course all the plugins I used are fully configurable even if the default conf
 
 ### Native Images
 A native image is a feature of GraalVM that allow you to compile java code to a standalone executable. With this tool you can make executables for Windows, Linux and MacOS and even for iOS and Android. To get this done on the easy way I recomend you to use [client-maven-plugin](https://github.com/gluonhq/client-maven-plugin). You can find all the information you need about the plugin on its repository but if you prefer to check a project that uses this plugin you can check [this project](https://github.com/seniorglez/calculatorFX) of mine.
+
+### Modular Project
+
+Java 9 introduces a new level of abstaction above packages: the JPMS, Java Platform Module System. Modules provides a strong encapsulation: the packages in a module are acessible to other modules only if the module explicitly exports them. Also is usefull because the new modular JRE allows you to build a custom jre with just the modules you are using to run your apps, this will allow you to save a lot of memory and is very usefull to create native installers for java applications. I recomend you to check [JPackage](https://openjdk.java.net/jeps/343). 
+
+But if you just want to get an executable as long the project is modular you can use the javafx-maven-plugin to build a jlink too:
+
+```
+mvn javafx:jlink
+```
+
 
 ## Built With
 
