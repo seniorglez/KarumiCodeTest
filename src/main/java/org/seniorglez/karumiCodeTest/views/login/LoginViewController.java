@@ -5,11 +5,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class LoginViewController implements Initializable {
+public class LoginViewController implements Initializable, EmailFormatChecker {
     @FXML
     private TextField usernameField;
     @FXML
@@ -22,5 +23,10 @@ public class LoginViewController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         loginButton.setDisable(true);
+    }
+
+    @FXML
+    private void handleKeyReleased(KeyEvent keyEvent){
+        loginButton.setDisable(!checkEmail(usernameField.getText()) || passwordField.getText().length()==0);
     }
 }

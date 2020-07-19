@@ -10,7 +10,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.seniorglez.karumiCodeTest.views.login.LoginViewController">
    <center>
-      <AnchorPane prefHeight="432.0" prefWidth="419.0" styleClass="root" stylesheets="@styles.css" BorderPane.alignment="CENTER" >
+      <AnchorPane prefHeight="432.0" prefWidth="419.0" styleClass="root" stylesheets="@styles.css" BorderPane.alignment="CENTER">
          <children>
             <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="260.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="90.0">
                <image>
@@ -18,8 +18,8 @@
                </image>
             </ImageView>
             <Button fx:id="loginButton" layoutX="188.0" layoutY="346.0" mnemonicParsing="false" prefHeight="34.0" text="Login" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="347.0" />
-            <PasswordField fx:id="passwordField" layoutX="219.0" layoutY="235.0" prefHeight="35.0" promptText="Password" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="276.0" />
-            <TextField fx:id="usernameField" layoutX="219.0" layoutY="283.0" prefHeight="35.0" promptText="username" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="229.0" />
+            <PasswordField fx:id="passwordField" layoutX="219.0" layoutY="235.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="Password" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="276.0" />
+            <TextField fx:id="usernameField" layoutX="219.0" layoutY="283.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="username" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="229.0" />
          </children>
       </AnchorPane>
    </center>
