@@ -18,7 +18,6 @@
  */
 package org.seniorglez.karumiCodeTest;
 
-import org.seniorglez.karumiCodeTest.config.PropertiesReader;
 import org.seniorglez.karumiCodeTest.services.login.Loggable;
 import org.seniorglez.karumiCodeTest.services.login.UnexpectedResponseCodeException;
 import org.junit.jupiter.api.Assertions;
@@ -40,7 +39,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(200);
@@ -62,7 +61,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(300);
@@ -85,7 +84,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(199);
