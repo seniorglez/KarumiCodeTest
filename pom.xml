@@ -5,10 +5,10 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>org.seniorglez</groupId>
-  <artifactId>org.seniorglez.karumiCodeTest</artifactId>
+  <artifactId>karumiCodeTest</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>org.seniorglez.karumiCodeTest</name>
+  <name>karumiCodeTest</name>
   <url>https://www.karumi.com/</url>
 
   <properties>

@@ -21,8 +21,16 @@ package org.seniorglez.karumiCodeTest.views.login;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Implementing this interface allows an object to check if an email is valid.
+ */
 public interface EmailFormatChecker {
 
+    /**
+     * Returns true if the given email is valid.
+     * @param email The email to evaluate.
+     * @return True if the given email is valid and false if it is not.
+     */
     default boolean checkEmail(String email) {
         Pattern pattern = Pattern.compile("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}");
         Matcher matcher = pattern.matcher(email);
