@@ -19,6 +19,7 @@
 package org.seniorglez.karumiCodeTest.config;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.Properties;
 
@@ -35,7 +36,9 @@ public class PropertiesReader {
      */
     public PropertiesReader() {
         properties = new Properties();
-        InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream("/karumiCodeTest/config.properties"));
+        InputStream inputStream = PropertiesReader.class.getResourceAsStream("/org/seniorglez/karumiCodeTest/config/config.properties");
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
         try {
             properties.load(inputStreamReader);
         } catch (IOException e) {
@@ -48,7 +51,7 @@ public class PropertiesReader {
      * @param key the key associated with one value.
      * @return the value associated.
      */
-    public String getProerty(String key) {
+    public String getProperty(String key) {
         return properties.getProperty(key);
     }
 

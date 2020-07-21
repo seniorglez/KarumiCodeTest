@@ -28,7 +28,6 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.Properties;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
@@ -90,7 +89,7 @@ public class LoginTask extends Task<String> implements Loggable {
                 .build();
         request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(propertiesReader.getProerty("url")))
+                .uri(URI.create(propertiesReader.getProperty("url")))
                 .POST(HttpRequest.BodyPublishers.ofString(buildCredentialsJson()))
                 .build();
         bodyHandler = HttpResponse.BodyHandlers.ofString();

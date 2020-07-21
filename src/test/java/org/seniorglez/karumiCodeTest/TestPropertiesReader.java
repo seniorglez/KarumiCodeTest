@@ -18,7 +18,6 @@
  */
 package org.seniorglez.karumiCodeTest;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.seniorglez.karumiCodeTest.config.PropertiesReader;
 import java.util.regex.Matcher;
@@ -34,7 +33,7 @@ public class TestPropertiesReader {
     @Test
     public void shouldRetrieveAnURL() {
         PropertiesReader propertiesReader = new PropertiesReader();
-        String url = propertiesReader.getProerty("url");
+        String url = propertiesReader.getProperty("url");
         Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
         Matcher matcher = pattern.matcher(url);
         assertTrue(matcher.matches());
