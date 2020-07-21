@@ -25,7 +25,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@Disabled("This test produces a NullPointerException but only on the github server") public class TestPropertiesReader {
+public class TestPropertiesReader {
 
     /**
      *
@@ -33,7 +33,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
      */
     @Test
     public void shouldRetrieveAnURL() {
-        PropertiesReader propertiesReader = PropertiesReader.instanciate();
+        PropertiesReader propertiesReader = new PropertiesReader();
         String url = propertiesReader.getProerty("url");
         Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
         Matcher matcher = pattern.matcher(url);

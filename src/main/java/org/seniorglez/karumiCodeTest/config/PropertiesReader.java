@@ -28,21 +28,12 @@ import java.util.Properties;
  */
 public class PropertiesReader {
 
-    private static PropertiesReader propertiesReader = null;
     private Properties properties;
-
-    /**
-     * @return The {@link PropertiesReader} object associated with the current application.
-     */
-    public static PropertiesReader instanciate() {
-        if(propertiesReader == null) propertiesReader = new PropertiesReader();
-        return  propertiesReader;
-    }
 
     /**
      * Construct a new {@link PropertiesReader}
      */
-    private PropertiesReader() {
+    public PropertiesReader() {
         properties = new Properties();
         InputStreamReader inputStreamReader = new InputStreamReader(getClass().getResourceAsStream("/karumiCodeTest/config.properties"));
         try {
