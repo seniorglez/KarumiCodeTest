@@ -14,4 +14,13 @@ public class TestEmailFormatChecker implements EmailFormatChecker {
         assertTrue(checkEmail("seniorglez@karumi.com.es"));
         assertTrue(checkEmail("seniorglez-diego@karumi.com"));
     }
+
+    @Test
+    public void shouldReturnFalse(){
+        assertTrue(!checkEmail("seniOrglez@yahoo.com"));
+        assertTrue(!checkEmail("pepe*asda@yahoo.com"));
+        assertTrue(!checkEmail("senior@yahoo.com.e"));
+        assertTrue(!checkEmail("/asdasd@yahoo.com"));
+        assertTrue(!checkEmail("asd;@yahoo.com"));
+    }
 }
