@@ -17,37 +17,55 @@
  *  IN THE SOFTWARE.
  */
 package org.seniorglez.karumiCodeTest.views.login;
+
 import org.seniorglez.karumiCodeTest.model.Credentials;
 import org.seniorglez.karumiCodeTest.services.login.LoginService;
-
 
 /**
  * The view model of the Login view, implemented MVVM as far as vanilla javaFX allows me.
  */
 public class LoginViewModel {
 
+    /**
+     * The {@link LoginService} which the instance uses to log in the server.
+     */
     private LoginService loginService;
 
+    /**
+     * The view controller which is involved with this view model.
+     */
     private LoginViewController loginViewController;
 
+    /**
+     * Constructs a new {@link LoginViewModel} from the specified {@link LoginViewController}
+     * @param loginViewController he view controller which is involved with this view model.
+     */
     public LoginViewModel(LoginViewController loginViewController) {
         this.loginViewController = loginViewController;
         setUpLoginService();
-
-
     }
-    private void setUpLoginService(){
+
+    /**
+     * Sets up the instance's {@link LoginService} which is going to use to log in the server.
+     *
+     * It will handle the succeeded event and the failed event.
+     */
+    private void setUpLoginService() {
         loginService = new LoginService();
         loginService.setOnSucceeded(workerStateEvent -> {
             String token = (String) workerStateEvent.getSource().getValue();
-            System.out.println("service");
             loginViewController.loadNewScene("userPanel");
         });
         loginService.setOnFailed(workerStateEvent -> {
-            workerStateEvent.getSource().getException().printStackTrace();
+            workerStateEvent.getSource().getException().printStackTrace();//Here you can handle the UnexpectedResponseCodeException
         });
     }
 
+    /**
+     * Attempts to log in the server with a given name and a given password.
+     * @param name The user's email
+     * @param password The user's password
+     */
     public void login( String name, String password) {
         Credentials credentials = new Credentials();
         credentials.setEmail(name);

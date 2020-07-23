@@ -59,7 +59,7 @@ public class LoginViewController implements Initializable, EmailFormatChecker {
      * Changes the current Stage scene for a scene generated with the given fxml.
      * @param fxml the name of the fxml (without the extension).
      */
-    public void loadNewScene(String fxml){
+    public void loadNewScene(String fxml) {
         Stage stage = (Stage) this.loginButton.getScene().getWindow();
         System.out.println("Loading " + fxml);
         try {
