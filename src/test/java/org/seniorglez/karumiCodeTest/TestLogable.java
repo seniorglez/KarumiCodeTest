@@ -11,16 +11,15 @@
  *  of the Software.
  *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+ *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
  *  OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest;
+package org.seniorglez.karumiCodeTest;
 
-import karumiCodeTest.config.PropertiesReader;
-import karumiCodeTest.services.login.Loggable;
-import karumiCodeTest.services.login.UnexpectedResponseCodeException;
+import org.seniorglez.karumiCodeTest.services.login.Loggable;
+import org.seniorglez.karumiCodeTest.services.login.UnexpectedResponseCodeException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import java.io.IOException;
@@ -40,7 +39,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(200);
@@ -62,7 +61,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(300);
@@ -85,7 +84,7 @@ public class TestLogable implements Loggable {
         HttpResponse mokedResponse = mock(HttpResponse.class);
         HttpRequest request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create("https://fakeURL.org/"))
                 .POST(HttpRequest.BodyPublishers.ofString("json"))
                 .build();
         when(mokedResponse.statusCode()).thenReturn(199);

@@ -11,23 +11,24 @@
  *  of the Software.
  *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+ *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
  *  OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-package karumiCodeTest.services.login;
+package org.seniorglez.karumiCodeTest.services.login;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import javafx.concurrent.Task;
-import karumiCodeTest.config.PropertiesReader;
-import karumiCodeTest.model.Credentials;
+import org.seniorglez.karumiCodeTest.config.PropertiesReader;
+import org.seniorglez.karumiCodeTest.model.Credentials;
 import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -82,12 +83,13 @@ public class LoginTask extends Task<String> implements Loggable {
      * @throws JsonProcessingException An exception which is thrown by all the problems that may occur when parsing JSONs.
      */
     private void prepareConnection() throws JsonProcessingException {
+        PropertiesReader propertiesReader = new PropertiesReader();
         httpClient = HttpClient
                 .newBuilder()
                 .build();
         request = HttpRequest
                 .newBuilder()
-                .uri(URI.create(PropertiesReader.instanciate().getProerty("url")))
+                .uri(URI.create(propertiesReader.getProperty("url")))
                 .POST(HttpRequest.BodyPublishers.ofString(buildCredentialsJson()))
                 .build();
         bodyHandler = HttpResponse.BodyHandlers.ofString();

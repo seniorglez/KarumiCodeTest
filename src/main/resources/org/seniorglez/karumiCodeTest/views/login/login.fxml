@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="432.0" prefWidth="290.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.seniorglez.karumiCodeTest.views.login.LoginViewController">
+   <center>
+      <AnchorPane prefHeight="432.0" prefWidth="419.0" styleClass="root" stylesheets="@styles.css" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="83.0" fitWidth="83.0" layoutX="260.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="260.0" AnchorPane.rightAnchor="259.0" AnchorPane.topAnchor="90.0">
+               <image>
+                  <Image url="@logo.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="loginButton" layoutX="188.0" layoutY="346.0" mnemonicParsing="false" onAction="#handleButtonClicked" prefHeight="34.0" text="Login" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="327.0" AnchorPane.topAnchor="347.0" />
+            <PasswordField fx:id="passwordField" layoutX="219.0" layoutY="235.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="Password" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="276.0" />
+            <TextField fx:id="usernameField" layoutX="219.0" layoutY="283.0" onKeyReleased="#handleKeyReleased" prefHeight="35.0" promptText="username" AnchorPane.leftAnchor="188.0" AnchorPane.rightAnchor="189.0" AnchorPane.topAnchor="229.0" />
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
+        <!-- This file is part of KarumiCodeTest
+
+   Copyright (c) 2020 Diego Domínguez González
+
+   Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+   documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+   rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software,
+   and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+   The above copyright notice and this permission notice shall be included in all copies or substantial portions
+   of the Software.
+
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+   WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+   OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+   TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+   IN THE SOFTWARE.-->

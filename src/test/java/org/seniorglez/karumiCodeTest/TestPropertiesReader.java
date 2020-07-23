@@ -11,57 +11,31 @@
  *  of the Software.
  *
  *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
- *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+ *  WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
  *  OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
+package org.seniorglez.karumiCodeTest;
 
-package karumiCodeTest.model;
+import org.junit.jupiter.api.Test;
+import org.seniorglez.karumiCodeTest.config.PropertiesReader;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-/**
- * This POJO class represents the user credentials.
- */
-public class Credentials {
-
-    /**
-     * The user email which is stored on the server.
-     */
-    String email;
-    /**
-     * The user password which is stored on the server.
-     */
-    String password;
+public class TestPropertiesReader {
 
     /**
-     * Returns the user email.
-     * @return The user email.
+     *
+     * https://regexr.com/37i6s
      */
-    public String getEmail() {
-        return email;
-    }
-
-    /**
-     * Sets the user email.
-     * @param email The user email.
-     */
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    /**
-     * Returns the user password.
-     * @return The user password.
-     */
-    public String getPassword() {
-        return password;
-    }
-
-    /**
-     * Sets the user password.
-     * @param password The user password.
-     */
-    public void setPassword(String password) {
-        this.password = password;
+    @Test
+    public void shouldRetrieveAnURL() {
+        PropertiesReader propertiesReader = new PropertiesReader();
+        String url = propertiesReader.getProperty("url");
+        Pattern pattern = Pattern.compile("https?:\\/\\/(www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{2,256}\\.[a-z]{2,4}\\b([-a-zA-Z0-9@:%_\\+.~#?&//=]*)");
+        Matcher matcher = pattern.matcher(url);
+        assertTrue(matcher.matches());
     }
 }

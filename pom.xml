@@ -15,7 +15,7 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>11</maven.compiler.release>
     <javafx.version>14.0.1</javafx.version>
-    <mainClassName>karumiCodeTest.App</mainClassName>
+    <mainClassName>org.seniorglez.karumiCodeTest.App</mainClassName>
   </properties>
 
   <dependencies>
@@ -39,12 +39,6 @@
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
       <version>5.5.1</version>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>org.testfx</groupId>
-      <artifactId>testfx-junit5</artifactId>
-      <version>4.0.16-alpha</version>
       <scope>test</scope>
     </dependency>
     <!--mocking libraries-->

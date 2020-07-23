@@ -16,18 +16,24 @@
  *  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
  *  IN THE SOFTWARE.
  */
-module org.seniorglez.karumiCodeTest {
-    requires javafx.controls;
-    requires javafx.fxml;
-    requires java.net.http;
-    requires com.fasterxml.jackson.databind;
-    requires com.fasterxml.jackson.core;
-    requires org.mockito;
+package org.seniorglez.karumiCodeTest.views.login;
 
-    opens org.seniorglez.karumiCodeTest to javafx.fxml;
-    opens org.seniorglez.karumiCodeTest.views.login to javafx.fxml;
-    opens org.seniorglez.karumiCodeTest.views.userPanel to javafx.fxml;
-    exports org.seniorglez.karumiCodeTest.model;
-    exports org.seniorglez.karumiCodeTest;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+/**
+ * Implementing this interface allows an object to check if an email is valid.
+ */
+public interface EmailFormatChecker {
+
+    /**
+     * Returns true if the given email is valid.
+     * @param email The email to evaluate.
+     * @return True if the given email is valid and false if it is not.
+     */
+    default boolean checkEmail(String email) {
+        Pattern pattern = Pattern.compile("[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}");
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 }
-

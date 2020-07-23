@@ -1,0 +1,26 @@
+.text-field {
+    -fx-font-size: 14;
+}
+
+.button {
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 0;
+    -fx-background-radius: 5;
+    -fx-background-color: #217af0;
+    -fx-font-size: 13;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-insets: 0 0 0 0, 0, 1, 2;
+}
+
+.button:pressed {
+   -fx-background-color: #c0dafc;
+}
+
+.button:disabled {
+    -fx-background-color: #898c91;
+}
+
+.root {
+-fx-background-color: #FFFFFF;
+}
