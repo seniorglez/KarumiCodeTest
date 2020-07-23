@@ -1,4 +1,4 @@
-# org.seniorglez.karumiCodeTest
+# KarumiCodeTest
 A simple javaFX app with a full logging system which mockes the network connections.
 
 ## Getting Started
@@ -53,16 +53,21 @@ But if you just want to get an executable as long the project is modular you can
 mvn javafx:jlink
 ```
 
+The project is already modular but its tests are not. This will be nice to have because if you have a main module that is modular and your "Module test" is not modular it can generate access problems when getting involved with some test libraries. This is a great [post](https://sormuras.github.io/blog/2018-09-11-testing-in-the-modular-world.html) to get started with testing on modular java.
+
+### Better testing 
+I'm not using UI testing libraries such as [TestFX](https://github.com/TestFX/TestFX), because it did not allow me the tests I want to perform (I can not check if the button is enabled or not) but if the app grows this will be your best friend. 
 
 ## Built With
 
 * [Maven](https://maven.apache.org/) - The build automation tool
 * [OpenJavaFX](https://openjfx.io/) - An open source, next generation client application platform for desktop, mobile and embedded systems built on Java.
 * [javafx-maven-plugin](https://github.com/openjfx/javafx-maven-plugin) - The javaFX plugin  which allows to compile and run javaFX 11 or higher projets.
+* [maven-surefire-plugin](https://github.com/apache/maven-surefire) - A testing plugin compatible with JUnit5.
 * [jackson-databind](https://github.com/FasterXML/jackson-databind) - The json processor.
 * [JUnit5](https://github.com/junit-team/junit5) - The popular unit testing library for the JVM platform.
-* [TestFX](https://github.com/TestFX/TestFX) - A simple library for testing JavaFX apps with support for JUnit.
 * [Mockito](https://github.com/mockito/mockito) - The popular mocking framework written in Java.
+
 
 ## Contributing
 
