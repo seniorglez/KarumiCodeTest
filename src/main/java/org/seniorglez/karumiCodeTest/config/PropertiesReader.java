@@ -47,12 +47,30 @@ public class PropertiesReader {
     }
 
     /**
+     * Construct a new {@link PropertiesReader} with the properties located on the given url.
+     */
+    public PropertiesReader(String url) {
+        properties = new Properties();
+        InputStream inputStream = PropertiesReader.class.getResourceAsStream(url);
+        InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+
+        try {
+            properties.load(inputStreamReader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    /**
      * Returns the value associated with the given key.
      * @param key the key associated with one value.
      * @return the value associated.
      */
     public String getProperty(String key) {
         return properties.getProperty(key);
+    }
+
+    public void setProperty(String key, String value) {
+        properties.setProperty(key,value);
     }
 
 }

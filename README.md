@@ -53,7 +53,7 @@ But if you just want to get an executable as long the project is modular you can
 mvn javafx:jlink
 ```
 
-The project is already modular but its tests are not. This will be nice to have because if you have a main module that is modular and your "Module test" is not modular it can generate access problems when getting involved with some test libraries. This is a great [post](https://sormuras.github.io/blog/2018-09-11-testing-in-the-modular-world.html) to get started with testing on modular java.
+Neither the main project and the test are modular. Having also a modular test module will be nice to have because if you have a main module that is modular and your "Module test" is not modular it can generate access problems when getting involved with some test libraries. This is a great [post](https://sormuras.github.io/blog/2018-09-11-testing-in-the-modular-world.html) to get started with testing on modular java.
 
 ### Better testing 
 I'm not using UI testing libraries such as [TestFX](https://github.com/TestFX/TestFX), because it did not allow me the tests I want to perform (I can not check if the button is enabled or not) but if the app grows this will be your best friend. 

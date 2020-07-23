@@ -74,7 +74,7 @@ public class TestLogable implements Loggable {
             throw e;
         }
         Assertions.assertThrows(UnexpectedResponseCodeException.class, ()-> {
-            logIn(httpClient,request,bodyHandlers);
+            logIn(httpClient, request, bodyHandlers);
         });
     }
 
@@ -97,7 +97,7 @@ public class TestLogable implements Loggable {
             throw e;
         }
         Assertions.assertThrows(UnexpectedResponseCodeException.class, ()-> {
-            logIn(httpClient,request,bodyHandlers);
+            logIn(httpClient, request, bodyHandlers);
         });
     }
 }
